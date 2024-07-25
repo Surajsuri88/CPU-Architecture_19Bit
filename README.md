@@ -26,6 +26,7 @@ The purpose of this project is to design and implement a specialized 19-bit CPU 
 10. Branch Control
 
 ### Instruction Set to perform different operations
+**Inst**    **opcode**
 1. ADD   00000
 2. SUB   00001
 3. MUL   00010
@@ -65,6 +66,21 @@ The purpose of this project is to design and implement a specialized 19-bit CPU 
 4. Memory Access
 5. Write Back
 
-#### 1. Instruction Fetch
-**Instruction Memory** which is 
+### Brief explanation on Modules used:
+#### 1. Instruction_Fetch
+**Instruction Memory** which is 32 Bit register each of 19 Bit. 
+This is used to store the instruction according to the **program counter (PC)** one of the input.
+This module returns the output Instruction used for ALU and Instruction1 used for Branching instructions
+
+#### 2. Instruction_decode
+This module receives the inputs like **Instruction, Instruction1, opcode** and returns the multiple outputs like **Read_reg1, Read_reg2, Read_reg3** which are address of registers that the operations has to perform.
+**opcode** are very important as it guides to perform what has to be executed.
+
+### 3. Register_File
+This module contains **Register** as memory 32 Bit register each of 19 Bit to store the data into it.
+This module mainly retrieve the inputs like flag, address of each registers **(reg1, reg2, reg3)** and data mainly used to store the data into a particular address.
+This module returns with the main output i.e **data1,data2,data3** which are further used to perform arithmetic and logical operations.
+
+### 4. Control Unit
+Basically **control unit** acts as brain of this Architecture as it has ability to check the **instruction** and rise the **flags** accordingly to perform multiple operation
 
