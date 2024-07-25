@@ -47,7 +47,7 @@ The purpose of this project is to design and implement a specialized 19-bit CPU 
 
 ## Getting Started
 #### Different TestBench are created to demonstrate different operation
-1. CPU_ALU_testbench.v           *Run this file to perform all Arithmetic and logical operations*
+1. CPU_ALU_testbench.v     ______*Run this file to perform all Arithmetic and logical operations*
 2. CPU_jump_testbench.v          *Run this file to perform jump operation*
 3. CPU_CallRet_testbench.v       *Run this file to perform CALL and RET operation*
 4. CPU_Branch_testbench.v        *Run this file to perform BEQ operation*
