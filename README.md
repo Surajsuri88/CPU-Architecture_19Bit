@@ -25,3 +25,4 @@ The purpose of this project is to design and implement a specialized 19-bit CPU 
 9. Jump Control
 10. Branch Control
 
+### Instruction Set to perform different operations
