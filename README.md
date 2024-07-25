@@ -82,5 +82,20 @@ This module mainly retrieve the inputs like flag, address of each registers **(r
 This module returns with the main output i.e **data1,data2,data3** which are further used to perform arithmetic and logical operations.
 
 ### 4. Control Unit
-Basically **control unit** acts as brain of this Architecture as it has ability to check the **instruction** and rise the **flags** accordingly to perform multiple operation
+Basically **control unit** acts as **Brain** of this Architecture as it has ability to check the **instruction and opcode** and rise the **flags** accordingly to perform multiple operation.
+
+### 5. ALU
+In this module the inputs like **data1,data2,data3** are used to perform Arithmetic and logical instructions based on the received **opcode** and returns the the performed output called **ALU_result**.
+
+### 6. MemoryInterface
+This module is basically for storing the data into the memory it has a **memory register** to store the data permanently.
+
+### 7.CPU 
+Finally, this module can also be called as **Main Body** of the Architecture because this module is responsible for each and every connection that is neccessarily to connect different other modules.
+
+---------------------------------------------------------------------------------------------------------------------------
+
+
+## Contact:
+Email: surajg606suraj@gmail.com
 
