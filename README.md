@@ -58,12 +58,13 @@ The purpose of this project is to design and implement a specialized 19-bit CPU 
 ###### *Outputs are expected to observe in transcript window*
 ###### *HDL used here is Verilog and successfully performed the above operations in software called **Questa Sim-64 10.6c***
 
-### Pipeline Stages
+#### Pipeline Stages
 1. Fetch
 2. Decode
 3. Execute
 4. Memory Access
 5. Write Back
 
-
+#### 1. Instruction Fetch
+**Instruction Memory** which is 
 
