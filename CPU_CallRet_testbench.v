@@ -1,0 +1,43 @@
+module CPU_CallRet_testbench;
+    reg clk;
+    reg reset;
+
+    // Instantiate the CPU
+    CPU uut (
+        .clk(clk),
+        .reset(reset)
+    );
+
+    // Clock generation
+    always #5 clk = ~clk;
+
+initial begin
+        // Initialize inputs
+        clk = 0;
+        reset = 1;
+        #10 reset = 0;
+        //10 reset = 1;
+
+	uut.ifetch.instruction_memory[0] = 19'b00000_0000_00000_00000;
+	uut.ifetch.instruction_memory[1] = 19'b01011_00000000000110;//call addr  : jumps to PC 6 and execute PC 7 and PC 8 and returns to PC 3
+	uut.ifetch.instruction_memory[2] = 19'b00000_0000_00000_00000;
+	uut.ifetch.instruction_memory[3] = 19'b00000_0000_00000_00000;
+	uut.ifetch.instruction_memory[4] = 19'b00000_0000_00000_00000;
+	uut.ifetch.instruction_memory[5] = 19'b00000_0000_00000_00000;
+	uut.ifetch.instruction_memory[6] = 19'b00000_0000_00000_00000;
+	uut.ifetch.instruction_memory[7] = 19'b00000_0000_00000_00000;
+	uut.ifetch.instruction_memory[8] = 19'b00000_0000_00000_00000;
+	uut.ifetch.instruction_memory[9] = 19'b01100_00000000000000;//Ret  : returns to prev stack PC
+	
+ 
+	
+ 	        // Run the simulation for a specific period
+        #150;	
+	
+	
+
+
+        // End simulation
+        $finish;
+    end
+endmodule

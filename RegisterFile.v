@@ -1,0 +1,44 @@
+module RegisterFile (
+    input wire clk,
+    input wire reset,
+    input wire [4:0] read_reg3, 
+    input wire [4:0] read_reg2, 
+    input wire [3:0] write_reg,  //R1
+
+    input wire [6:0] value,
+
+    input wire [4:0] B_read_reg1, 
+    input wire [4:0] B_read_reg2, 
+
+
+    input wire [18:0] write_data,
+    input wire reg_write,
+    output wire [18:0] read_data1, 
+    output wire [18:0] read_data2,
+    output wire [18:0] read_data3,
+
+    output wire [18:0] B_read_data1, 
+    output wire [18:0] B_read_data2,
+    output wire [18:0] value_data
+);
+    reg [18:0] registers [31:0];
+    integer i;
+
+    always @(posedge clk or posedge reset) begin
+        if (reset) begin
+            for (i = 0; i < 32; i = i + 1)
+                registers[i] <= 19'b0;
+        end else if (reg_write) begin
+            registers[write_reg] <= write_data;
+        end
+    end
+
+    assign read_data1 = registers[write_reg];
+    assign read_data2 = registers[read_reg2];
+    assign read_data3 = registers[read_reg3];
+
+    assign value_data = registers[value];
+
+    assign B_read_data1 = registers[B_read_reg1];
+    assign B_read_data2 = registers[B_read_reg2];
+endmodule

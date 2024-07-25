@@ -1,0 +1,41 @@
+module B_ControlUnit (
+    input wire [18:0] instruction1,
+    input wire [18:0] B_read_data1, B_read_data2,
+    output reg B_branch
+
+);
+
+    always @(*) begin
+        case (instruction1[18:15])
+	4'b1001: begin // BEQ
+
+		if (B_read_data1 == B_read_data2) begin
+
+                B_branch = 1;
+ 		end
+		else begin
+
+                B_branch = 0;
+        	end
+            end
+
+	4'b1010: begin // BNE
+
+		if (B_read_data1 =! B_read_data2) begin
+            
+
+                B_branch = 1;
+ 		end
+		else begin
+               
+                B_branch = 0;
+                 end
+            end
+	            default: begin
+               
+                B_branch = 0;
+
+            end
+        endcase
+    end
+endmodule

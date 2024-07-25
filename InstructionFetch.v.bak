@@ -1,0 +1,15 @@
+module InstructionFetch (
+    input wire clk,
+    input wire reset,
+    input wire [18:0] pc,
+    output reg [18:0] instruction
+);
+    reg [18:0] instruction_memory [0:31]; // Simple instruction memory
+
+    always @(posedge clk or posedge reset) begin
+        if (reset)
+            instruction <= 19'b0;
+        else
+            instruction <= instruction_memory[pc];
+    end
+endmodule

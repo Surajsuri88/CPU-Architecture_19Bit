@@ -1,0 +1,92 @@
+module CPU_tb;
+    reg clk;
+    reg reset;
+
+    // Instantiate the CPU
+    CPU uut (
+        .clk(clk),
+        .reset(reset)
+    );
+
+    // Clock generation
+    always #5 clk = ~clk;
+
+    initial begin
+        // Initialize inputs
+        clk = 0;
+        reset = 1;
+        #10 reset = 0;
+        //10 reset = 1;
+
+
+	//uut.ifetch.instruction_memory[0] = 19'b00111_0001_00010_00000;
+	
+	//uut.ifetch.instruction_memory[0] = 19'b10000_0001_00010_00000;//encryption
+	//uut.ifetch.instruction_memory[0] = 19'b10001_0001_00010_00000;//decryption
+ 	uut.ifetch.instruction_memory[0] = 19'b01101_0000001_0000010;//LD
+  	//uut.ifetch.instruction_memory[0] = 19'b01110_0000001_0000001;//ST
+         //uut.ifetch.instruction_memory[0] = 19'b00001_0001_00010_00011;// add 
+
+	//uut.ifetch.instruction_memory[1] = 19'b1001_00011_00100_00100;//jump
+
+	/*uut.ifetch.instruction_memory[1] = 19'b01011_00000000001010;// call
+	uut.ifetch.instruction_memory[2] = 19'b00001_0000010_0000111; //7-3=4
+	uut.ifetch.instruction_memory[3] = 19'b00000_0001000_0000010; //3+1=4
+	uut.ifetch.instruction_memory[4] = 19'b00000_0000101_0000011; //5+1=6
+	uut.ifetch.instruction_memory[5] = 19'b00000_0000001_0000010;
+
+	uut.ifetch.instruction_memory[6] = 19'b00001_0000010_0000111; //7-3=4
+	uut.ifetch.instruction_memory[7] = 19'b00000_0001000_0000010; //3+1=4
+	uut.ifetch.instruction_memory[8] = 19'b00000_0000101_0000011; //5+1=6
+	uut.ifetch.instruction_memory[9] = 19'b00000_0000101_0000011;
+	uut.ifetch.instruction_memory[10] = 19'b00001_0000010_0000111; //7-3=4
+	uut.ifetch.instruction_memory[11] = 19'b00000_0001000_0000010; //3+1=4
+	
+	uut.ifetch.instruction_memory[12] = 19'b01100_00000000000000;//ret 
+
+	//uut.ifetch.instruction_memory[3] = 19'b;	*/
+
+
+
+
+  //inititializing memory
+	uut.mem.memory[1] = 1;
+        uut.mem.memory[2] = 2;
+
+        uut.mem.memory[3] = 3;
+        uut.mem.memory[4] = 4;
+
+        // Initialize register file for testing
+        uut.rf.registers[1] = 5;
+        uut.rf.registers[2] = 19'b0000000000000111111;//0
+
+        uut.rf.registers[3] = 3;
+        uut.rf.registers[4] = 3; //1
+
+	uut.rf.registers[5] = 5;
+        uut.rf.registers[6] = 6;//8
+
+	uut.rf.registers[7] = 7;
+        uut.rf.registers[8] = 8;
+
+        // Run the simulation for a specific period
+        #100;
+
+        // Check register values
+        $display("r1 = %b", uut.rf.registers[1]); 	
+	$display("r2 = %b", uut.rf.registers[2]);
+	$display("r3 = %d", uut.rf.registers[3]); 
+	$display("r4 = %d", uut.rf.registers[4]);
+        $display("r5 = %d", uut.rf.registers[5]); 	
+	$display("r6 = %d", uut.rf.registers[6]);
+	$display("r7 = %d", uut.rf.registers[7]); 
+	$display("r8 = %d", uut.rf.registers[8]);
+	$display("mem[1] = %d", uut.mem.memory[1]);
+	
+
+
+        // End simulation
+        $finish;
+    end
+endmodule
+

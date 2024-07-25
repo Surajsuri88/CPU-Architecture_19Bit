@@ -1,0 +1,37 @@
+module Jump_control (
+    input wire [18:0] instruction,
+    input wire [18:0] instruction1,
+    //input wire [18:0] immediate,
+    output reg jump,push,pop
+);
+
+    always @(*) begin
+
+  if (instruction[18:14] == 5'b01011) begin // call
+		jump = 1;
+                push = 1;
+                pop = 0;
+		end
+  else if (instruction1[18:14] == 5'b01100) begin //ret
+                jump = 1;
+                push = 0;
+                pop = 1;
+		end
+  else if (instruction[18:14] == 5'b01010) begin // jump
+		jump = 1;
+                push = 0;
+                pop = 0;
+		end
+  /*else if (instruction1[18:14] == 5'b01101)begin
+                reg_write = 1;
+                mem_read = 1;
+                mem_write = 0;
+		end*/
+  else begin
+	jump = 0;
+	push = 0;
+	pop = 0;
+	end
+
+    end
+endmodule

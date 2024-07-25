@@ -1,0 +1,45 @@
+module PCAdder (
+    input wire [18:0] from_pc,
+    input wire [13:0] immediate,
+    input wire B_branch,
+    input wire [4:0] B_write_reg,
+    input wire jump,
+    input wire push,
+    input wire pop,
+    input wire alu_zero,
+    output reg [18:0] pc_added
+
+);
+reg [4:0] sp;
+initial begin
+sp=5'b0; end
+reg [18:0] stack [0:31];
+reg [18:0] temp;
+
+always @(*) begin
+
+	if(jump ==1 && push==0 && pop==0)begin
+                pc_added = immediate;
+        	end
+	 else if (jump ==1 && push==1 && pop==0) begin
+		stack[sp] = temp;
+		sp=sp+1;
+                pc_added = immediate; //CALL
+		
+            	end 
+
+	else if (jump ==1 && push==0 && pop==1) begin
+		sp=sp-1;
+                pc_added = stack[sp]; //RET
+            	end
+	
+	else if (B_branch) begin //BEQ and BNE
+		pc_added = B_write_reg;
+		end
+	else begin
+		pc_added = from_pc+1;
+		temp = pc_added;
+		end
+end
+	
+endmodule

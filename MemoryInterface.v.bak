@@ -1,0 +1,21 @@
+module MemoryInterface (
+    input wire clk,
+    input wire reset,
+    input wire mem_read,
+    input wire mem_write,
+    input wire [6:0] mem_add,value,
+    input wire [18:0] write_data,
+    output reg [18:0] read_data
+);
+    reg [18:0] memory [0:255];
+
+    always @(posedge clk or posedge reset) begin
+        if (reset) begin
+            read_data <= 19'b0;
+        end else if (mem_read) begin
+            read_data <= memory[value];
+        end else if (mem_write) begin
+            memory[mem_add] <= value_data;
+        end
+    end
+endmodule
