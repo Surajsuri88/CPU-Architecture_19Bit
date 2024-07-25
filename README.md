@@ -26,25 +26,25 @@ The purpose of this project is to design and implement a specialized 19-bit CPU 
 10. Branch Control
 
 ### Instruction Set to perform different operations
-**Inst** - - -**opcode**
+**Instruction** - - -**opcode**
 1. ADD - - - 00000
 2. SUB - - - 00001
-3. MUL   00010
-4. DIV   00011
-5. AND   00100
-6. OR    00101
-7. XOR   00110
-8. NOT   00111
-9. INC   01000
-10. DEC  01001
-11. JUMP 01010
-12. CALL 01011
-13. LD   01101
-14. ST   01110
-15. ENC  10000
-16. DEC  10001
-17. BEQ  1001
-18. BNE  1010
+3. MUL - - - 00010
+4. DIV - - - 00011
+5. AND - - - 00100
+6. OR  - - - 00101
+7. XOR - - - 00110
+8. NOT - - - 00111
+9. INC - - - 01000
+10. DEC - - -01001
+11. JUMP - - 01010
+12. CALL - - 01011
+13. LD - - - 01101
+14. ST - - - 01110
+15. ENC - - - 10000
+16. DEC - - - 10001
+17. BEQ - - - 1001
+18. BNE - - - 1010
 
 ## Getting Started
 #### Different TestBench are created to demonstrate different operation
