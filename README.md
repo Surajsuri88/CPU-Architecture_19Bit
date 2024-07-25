@@ -47,13 +47,13 @@ The purpose of this project is to design and implement a specialized 19-bit CPU 
 
 ## Getting Started
 ### Different TestBench are created to demonstrate different operation
-1. CPU_ALU_testbench.v        *//Run this file to perform all Arithmetic and logical operations*
-2. CPU_jump_testbench.v       *//Run this file to perform jump operation*
-3. CPU_CallRet_testbench.v    *//Run this file to perform CALL and RET operation*
-4. CPU_Branch_testbench.v     *//Run this file to perform BEQ operation*
-5. CPU_BranchBne_testbench.v  *//Run this file to perform BEQ operation*
-6. CPU_EnDecrypt_testbench.v  *//Run this file to perform Encryption and Decryption*
-7. CPU_Store_testbench.v      *//Run this file to perform ST operation*
+1. CPU_ALU_testbench.v        *// Run this file to perform all Arithmetic and logical operations*
+2. CPU_jump_testbench.v       *// Run this file to perform jump operation*
+3. CPU_CallRet_testbench.v    *// Run this file to perform CALL and RET operation*
+4. CPU_Branch_testbench.v     *// Run this file to perform BEQ operation*
+5. CPU_BranchBne_testbench.v  *// Run this file to perform BEQ operation*
+6. CPU_EnDecrypt_testbench.v  *// Run this file to perform Encryption and Decryption*
+7. CPU_Store_testbench.v      *// Run this file to perform ST operation*
    
 ###### *Outputs are expected to observe in transcript window *
 ###### *HDL used here is Verilog and successfully performed the above operations in software called **Questa Sim-64 10.6c***
