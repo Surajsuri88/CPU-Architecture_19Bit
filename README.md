@@ -26,9 +26,9 @@ The purpose of this project is to design and implement a specialized 19-bit CPU 
 10. Branch Control
 
 ### Instruction Set to perform different operations
-**Inst**    **opcode**
-1. ADD   00000
-2. SUB   00001
+**Inst** - - -**opcode**
+1. ADD - - - 00000
+2. SUB - - - 00001
 3. MUL   00010
 4. DIV   00011
 5. AND   00100
