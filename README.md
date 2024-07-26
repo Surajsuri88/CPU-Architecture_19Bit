@@ -93,6 +93,21 @@ This module is basically for storing the data into the memory it has a **memory 
 #### 7.CPU 
 Finally, this module can also be called as **Main Body** of the Architecture because this module is responsible for each and every connection that is neccessarily to connect different other modules.
 
+### Instruction Syntax:
+Arithmetic operation : 5'b Opcode _ 4'b R1 _ 5'b R2 _ 5'b R3;
+Branch opration : 4'b Opcode _ 5'b R1 _ 5'b R2 _ 5'b branch addr;
+Jump operation : 5'b Opcode _ 14'b jump addr;
+Encryption and Decryption operation : 5'b Opcode _ 4'b Encrypted/Decrypted addr _ 5'b Input /Encrypted addr  _ 5'b 0;
+### Example Instruction Set:
+19'b00000_0001_00010_00011;//add r1,r2,r3  : r1 = r2 + r3 : r1 = 20 + 10 = 30
+19'b00001_0001_00010_00011;//sub r1,r2,r3  : r1 = r2 - r3 : r1 = 20 - 10 = 10
+19'b00001_0001_00010_00011;//and r1,r2,r3  : r1 = r2 & r3 : r1 = 1 & 0 = 0
+19'b00001_0001_00010_00011;//or r1,r2,r3   : r1 = r2 | r3 : r1 = 1 | 0 = 1
+
+19'b1001_00001_00010_00101;//BEQ : r1 :3 and r2 :3 both are equal, PC branches to PC 5
+19'b1010_00001_00010_01001;//BNE : r1 : 3 and r2 :5 both are not equal therefore PC branches to PC 9
+
+
 ---------------------------------------------------------------------------------------------------------------------------
 
 
